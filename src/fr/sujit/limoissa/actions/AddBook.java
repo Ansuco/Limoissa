@@ -18,15 +18,16 @@ public class AddBook extends AbstractAction {
 	public void executeAction(HttpServletRequest request) {
 		Book book = new Book(
 			request.getParameter("book-title"),
-			"",
+			request.getParameter("book-overview"),
 			Float.parseFloat(request.getParameter("book-price")),
-			true,
+			Boolean.parseBoolean(request.getParameter("book-availability")),
 			new ArrayList<Author>()
 				);
+		
 		book.getAuthors().add(new Author(
 				request.getParameter("author-firstname"),
-				"",
-				null
+				request.getParameter("author-lastname"),
+				request.getParameter("author-country")
 				));
 		DAOFactory.getInstance().getBookDAO().create(book);
 		

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	      	<Resource
+      		name="jdbc/library"
+      		type="javax.sql.DataSource"
+      		username="sujit"
+      		password="1234"
+      		driverClassName="com.mysql.jdbc.Driver"
+      		url="jdbc:mysql://localhost:3306/limoissa"
+      		maxTotal="100"
+      		maxWaitMills="1000"
+      		maxIdle="30" />
+</Context>
