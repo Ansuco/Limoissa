@@ -27,10 +27,9 @@ public class MainServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		request.setAttribute("title", "Library Limoissa");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		
+		request.setAttribute("title", "Library Limoissa"); 	// To change the name of the title page.	
 		this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 		
 	}

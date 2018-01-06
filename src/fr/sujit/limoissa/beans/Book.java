@@ -18,6 +18,7 @@ public class Book {
 		this.authors = new ArrayList<Author>();
 	}
 	
+	
 	public Book(String title, String overview, float price, boolean availability, List<Author> authors) {
 		this();
 		this.title = title;
@@ -25,6 +26,11 @@ public class Book {
 		this.price = price;
 		this.availability = availability;
 		this.authors = authors;				
+	}
+	
+	public Book(int id, String title, String overview, float price, boolean availability, List<Author> authors) {
+		this(title, overview, price, availability, authors);
+		this.id = id;
 	}
 	
 	public int getId() {
