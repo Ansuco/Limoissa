@@ -15,7 +15,7 @@ import fr.sujit.limoissa.actions.ActionManager;
  */
 @WebServlet(
 		name = "/MainServlet",
-		value = { "/home", "/books"})
+		value = { "/home", "/books", "books/add"})
 public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

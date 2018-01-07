@@ -552,3 +552,6 @@ fieldset.red{
 legend{
     margin:0 10px;
 }
+input.firstb{
+  float: right;
+}
