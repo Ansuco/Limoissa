@@ -40,6 +40,8 @@ public final class ActionManager {
 	
 	
 	public static AbstractAction getAction(String actionName) {
+		
+		//System.out.println("Action Manager " + actionName);
 		return actions.get(actionName);
 	}
 	

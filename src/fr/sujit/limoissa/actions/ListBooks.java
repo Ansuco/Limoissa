@@ -13,6 +13,8 @@ public class ListBooks extends AbstractAction {
 
 	@Override
 	public void executeAction(HttpServletRequest request) {
+		
+		//System.out.println("Action ListBook");
 		List<Book> books = DAOFactory.getInstance().getBookDAO().findAll();
 		request.setAttribute("books", books);
 

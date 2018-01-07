@@ -1,7 +1,6 @@
 package fr.sujit.limoissa.main;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,15 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.sujit.limoissa.beans.Book;
-import fr.sujit.limoissa.dao.DAOFactory;
+import fr.sujit.limoissa.actions.ActionManager;
 
 /**
  * Servlet implementation class MainServlet
  */
 @WebServlet(
 		name = "/MainServlet",
-		value = "/home")
+		value = { "/home", "/books"})
 public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -36,7 +34,11 @@ public class MainServlet extends HttpServlet {
 		
 		request.setAttribute("title", "Library Limoissa"); 	// To change the name of the title page.	
 		
+		String actionName = getActionName(request);
 		
+		//System.out.println(actionName);
+		
+		ActionManager.getAction(actionName).executeAction(request);
 		
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
