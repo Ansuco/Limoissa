@@ -1,11 +1,16 @@
 package fr.sujit.limoissa.main;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import fr.sujit.limoissa.beans.Book;
+import fr.sujit.limoissa.dao.DAOFactory;
 
 /**
  * Servlet implementation class MainServlet
@@ -30,6 +35,13 @@ public class MainServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		
 		request.setAttribute("title", "Library Limoissa"); 	// To change the name of the title page.	
+		
+		//Test to findout if our DAO is working properly
+		List<Book> books = DAOFactory.getInstance().getBookDAO().findAll();		
+		System.out.println(books.size()); //DAO working
+		
+		
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 		
 	}
