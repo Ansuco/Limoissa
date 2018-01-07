@@ -36,9 +36,6 @@ public class MainServlet extends HttpServlet {
 		
 		request.setAttribute("title", "Library Limoissa"); 	// To change the name of the title page.	
 		
-		//Test to findout if our DAO is working properly
-		List<Book> books = DAOFactory.getInstance().getBookDAO().findAll();		
-		System.out.println(books.size()); //DAO working
 		
 		
 		
@@ -53,6 +50,16 @@ public class MainServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+	}
+	
+	/**
+	 * creation of method to parse the uri to get the action name
+	 * here the word after last "/" is recovered
+	 */
+	
+	private String getActionName(HttpServletRequest req) {
+		String uri = req.getRequestURI();
+		return uri.substring(uri.lastIndexOf("/")+1);
 	}
 
 }
