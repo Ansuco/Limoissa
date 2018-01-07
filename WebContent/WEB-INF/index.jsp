@@ -39,12 +39,17 @@
 		<c:forEach items="${books}" var ="book">
 		<tr>
 			<td class="text-left">${book.title }</td>
-			<c:forEach items="${book.authors}" var ="author">
-				<td class="text-left">
-					${author.lastname } ${author.firstname}
-				</td>
-				<td  class="text-left">${author.country}</td>
-			</c:forEach>
+			
+			<td class="text-left">
+				<c:forEach items="${book.authors}" var ="author" varStatus="loop">
+					${author.lastname } ${author.firstname}<c:if test="$!loop.last}"><br /></c:if>
+				</c:forEach>
+			</td>
+			<td  class="text-left">
+				<c:forEach items="${book.authors}" var ="author" varStatus="loop">
+					${author.country}<c:if test="$!loop.last}"><br /></c:if>
+				</c:forEach>
+			</td>
 			<td class="text-left">${book.price }</td>
 			<td class="text-center">${book.availability}</td>
 			<td class="text-center"><a href="#" id="modif"></a></td>
