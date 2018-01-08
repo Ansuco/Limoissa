@@ -42,12 +42,12 @@
 			
 			<td class="text-left">
 				<c:forEach items="${book.authors}" var ="author" varStatus="loop">
-					${author.lastname } ${author.firstname}<c:if test="$!loop.last}"><br /></c:if>
+					${author.lastname } ${author.firstname}<c:if test="${!loop.last}"><br /></c:if>
 				</c:forEach>
 			</td>
-			<td  class="text-left">
+			<td  class="text-center">
 				<c:forEach items="${book.authors}" var ="author" varStatus="loop">
-					${author.country}<c:if test="$!loop.last}"><br /></c:if>
+					${author.country}<c:if test="${!loop.last}"><br /></c:if>
 				</c:forEach>
 			</td>
 			<td class="text-left">${book.price }</td>
