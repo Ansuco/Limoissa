@@ -21,6 +21,7 @@ public final class ActionManager {
 	public static final String ACTION_DELETE = "delete";
 	public static final String ACTION_EDIT = "edit";
 	public static final String ACTION_LIST_BOOKS = "books";
+	public static final String ACTION_ADDAUTHOR = "addauthor";
 	
 	//Creation of Static Map called actions 
 	private static Map<String, AbstractAction> actions;
@@ -30,6 +31,7 @@ public final class ActionManager {
 		actions = new HashMap<String, AbstractAction>();
 		
 		actions.put(ACTION_ADD, new AddBook()); // go create AddBook class before creating other actions
+		actions.put(ACTION_ADDAUTHOR, new AddAuthor());
 //		actions.put(ACTION_DELETE, new DeleteBook());
 //		actions.put(ACTION_EDIT, new EditBook());
 		actions.put(ACTION_LIST_BOOKS, new ListBooks());

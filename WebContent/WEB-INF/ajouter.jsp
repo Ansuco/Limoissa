@@ -14,24 +14,24 @@
         <section id="contact">
             <h1> Ajouter un nouveau livre</h1>
 
-            <form action="#" method="post"  autocomplete="on" enctype="multipart/form-data">
+            <form action="<c:url value='/addauthor'/>" method="post"  autocomplete="on" enctype="multipart/form-data">
                 <fieldset class="red">
                     <legend>Ajouter un auteur</legend>
                     <table>
                         <tr>
                             <td>
-                                <label for="nom" class="iconic atelier" > Nom <span class="required">*</span></label>
-                                <input type="text" name="nom" id="nom" tabindex="1"  required="required" placeholder=""  />
+                                <label for="lastname" class="iconic atelier" > Nom <span class="required">*</span></label>
+                                <input type="text" name="lastname" id="lastname" tabindex="1"  required="required" placeholder=""  />
                             </td>                                       
                             <td>
-                                <label for="prenom" class="iconic tete" > Prénom <span class="required">*</span></label>                              
-                                <input type="text" name="prenom" id="prenom"  required="required" placeholder=""  />
+                                <label for="firstname" class="iconic tete" > Prénom <span class="required">*</span></label>                              
+                                <input type="text" name="firstname" id="firstname"  required="required" placeholder=""  />
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <label for="pays" class="iconic ou" > Pays <span class="required">*</span></label>                              
-                                <input type="text" name="pays" id="pays"  required="required" placeholder=""  />
+                                <label for="country" class="iconic ou" > Pays <span class="required">*</span></label>                              
+                                <input type="text" name="country" id="country"  required="required" placeholder=""  />
                             </td>
                         </tr>       
 
@@ -41,24 +41,24 @@
             </form>
 
 
-            <form action="#" method="post"  autocomplete="on" enctype="multipart/form-data">
+            <form action="<c:url value='/add'/>" method="post"  autocomplete="on" enctype="multipart/form-data">
                 <fieldset class="red">
                     <legend>Infos obligatoires</legend>
                     <table>
                         <tr>
                             <td>
-                                <label for="auteur" class="iconic atelier" > Auteur <span class="required">*</span></label>
-                                <select class="blank" name="archive" id="archive" tabindex="2">
-                                    <option value="1">Auteur1</option>
-                                    <option value="1">Auteur1</option>
-                                    <option value="1">Auteur1</option>
-                                    <option value="1">Auteur1</option>
-                                    <option value="0" selected="selected">Auteur2</option>
+                                <label for="authors" class="iconic atelier" > Auteur <span class="required">*</span></label>
+                                <select multiple="multiple" class="blank" name="authors" id="authors" tabindex="2">
+                                	<c:forEach items="${authors}" var="author">
+										<option value="${author.id} ${author.firstname} ${author.lastname} ${author.country}">
+											${author.firstname} ${author.lastname}
+										</option>
+									</c:forEach> 
                                 </select>
                             </td>										
                             <td>
-                                <label for="archive" class="iconic arch" > Disponibilité <span class="required">*</span></label>
-                                <select class="blank" name="archive" id="archive" tabindex="2">
+                                <label for="availability" class="iconic arch" > Disponibilité <span class="required">*</span></label>
+                                <select class="blank" name="availability" id="archive" tabindex="2">
                                     <option value="1">Oui</option>
                                     <option value="0" selected="selected">Non</option>
                                 </select>
@@ -66,12 +66,12 @@
                         </tr>
                         <tr>
                             <td>
-                                <label for="titre" class="iconic tete" > Titre <span class="required">*</span></label>								
-                                <input type="text" name="titre" id="titre"  required="required" placeholder=""  />
+                                <label for="title" class="iconic tete" > Titre <span class="required">*</span></label>								
+                                <input type="text" name="title" id="title"  required="required" placeholder=""  />
                             </td>
                             <td>
-                                <label for="tarif" class="iconic prix" > Tarif <span class="required">*</span></label>                                                      
-                                <input type="text" name="tarif" id="tarif"  required="required" placeholder=""  />
+                                <label for="price" class="iconic prix" > Tarif <span class="required">*</span></label>                                                      
+                                <input type="text" name="price" id="price"  required="required" placeholder=""  />
                             </td>
                         </tr>		
 
@@ -82,8 +82,8 @@
                     <table>
                         <tr>
                             <td>
-                                <label for="message" class="iconic comment"> Overview </label> 
-                                <textarea id="message" name="editor1" placeholder="<p>respectez le format</p>"  ></textarea>
+                                <label for="overview" class="iconic comment"> Overview </label> 
+                                <textarea id="overview" name="overview" placeholder="<p>respectez le format</p>"  ></textarea>
                             </td>
                         </tr>
                     </table>	

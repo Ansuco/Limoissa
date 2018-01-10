@@ -9,7 +9,7 @@
 	<h3>Librairie Limoissa</h3>
 </div>
 <div class="addbook">
-	<a href="<c:url value='ajouter.jsp'/>" class="nc">Ajouter un Livre</a>
+	<a href="<c:redirect url='ajouter.jsp'/>" class="nc">Ajouter un Livre</a>
 </div>
 <table class="table-fill">
 <thead>
