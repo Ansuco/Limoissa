@@ -8,17 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
+
 import fr.sujit.limoissa.actions.ActionManager;
+import fr.sujit.limoissa.utils.Redirect;
 
 /**
  * Servlet implementation class MainServlet
  */
 @WebServlet(
 		name = "/MainServlet",
-		value = { "/home", "/books"})
+		value = { "/home", "/books","/add"})
 public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private static final String HOME = "/WEB-INF/index.jsp";   
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -34,14 +37,14 @@ public class MainServlet extends HttpServlet {
 		
 		request.setAttribute("title", "Library Limoissa"); 	// To change the name of the title page.	
 		
-		String actionName = getActionName(request);
-		
-		//System.out.println(actionName);
-		
-		ActionManager.getAction(actionName).executeAction(request);
-		
-		
-		this.getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+		String actionName = getActionName(request);	
+		Redirect redirect = ActionManager.getAction(actionName).executeAction(request);
+		request.setAttribute("actionName", redirect.getAction());
+
+		if(redirect.isRedirection())
+			response.sendRedirect(request.getContextPath() + "/" + redirect.getAction());
+		else	
+			this.getServletContext().getRequestDispatcher(HOME).forward(request, response);
 		
 	}
 	
@@ -50,8 +53,18 @@ public class MainServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String actionName = getActionName(request);
+		Redirect redirect = ActionManager.getAction(actionName).executeAction(request);
+
+		if(redirect.isRedirection())
+		{
+			request.setAttribute("actionName", redirect.getAction());
+			response.sendRedirect(request.getContextPath() + "/" + redirect.getAction());
+		}
+		else
+		{
+			this.getServletContext().getRequestDispatcher(HOME).forward(request, response);
+		}
 	}
 	
 	/**

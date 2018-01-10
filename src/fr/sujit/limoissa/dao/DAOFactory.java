@@ -24,7 +24,7 @@ public class DAOFactory {
 
 	public static DAOFactory getInstance() { // pattern singleton
 
-		if (null == instance) {
+		if (instance == null) {
 			instance = new DAOFactory();
 
 		}

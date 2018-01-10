@@ -2,21 +2,32 @@ package fr.sujit.limoissa.actions;
 
 import javax.servlet.http.HttpServletRequest;
 
+
+
 import fr.sujit.limoissa.beans.Author;
 import fr.sujit.limoissa.dao.DAOFactory;
+import fr.sujit.limoissa.utils.Redirect;
 
 public class AddAuthor extends AbstractAction {
 	
     @Override
-    public void executeAction(HttpServletRequest request) {
-
-    	Author author = new Author(
-    			request.getParameter("author-firstname"),
-    			request.getParameter("author-lastname"),
-    			request.getParameter("author-country")
-  		);
-		DAOFactory.getInstance().getAuthorDAO().create(author);
+    public Redirect executeAction(HttpServletRequest request) {
+    	Redirect redirect = new Redirect(false, "addauthor");
+		request.setAttribute("title", "Ajouter un auteur");
+		
+		if(request.getMethod().equals("post")) {
+	    	Author author = new Author();
+	    	author.setFirstname(request.getParameter("author-firstname"));
+	    	author.setLastname(request.getParameter("author-lastname"));
+	    	author.setCountry(request.getParameter("author-country"));	
+    	
+    		request.setAttribute("author", author);
+    		
+  		
+    		DAOFactory.getInstance().getAuthorDAO().create(author);
+			redirect = new Redirect(true, "addauthor");
 
     }
-
+		return redirect;
+    }
 }

@@ -12,50 +12,27 @@
 <div id="content">
     <div id="maincontent">
         <section id="contact">
-            <h1> Ajouter un nouveau livre</h1>
-
-            <form action="<c:url value='/addauthor'/>" method="post"  autocomplete="on">
-                <fieldset class="red">
-                    <legend>Ajouter un auteur</legend>
-                    <table>
-                        <tr>
-                            <td>
-                                <label for="lastname" class="iconic atelier" > Nom <span class="required">*</span></label>
-                                <input type="text" name="lastname" id="lastname" tabindex="1"  required="required" placeholder=""  />
-                            </td>                                       
-                            <td>
-                                <label for="firstname" class="iconic tete" > Prénom <span class="required">*</span></label>                              
-                                <input type="text" name="firstname" id="firstname"  required="required" placeholder=""  />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label for="country" class="iconic ou" > Pays <span class="required">*</span></label>                              
-                                <input type="text" name="country" id="country"  required="required" placeholder=""  />
-                            </td>
-                        </tr>       
-
-                    </table>
-                </fieldset> 
-                <input class ="firstb" type="submit" value=" ★  Envoyer !" /> 
-            </form>
-
-
             <form action="<c:url value='/add'/>" method="post"  autocomplete="on">
                 <fieldset class="red">
                     <legend>Infos obligatoires</legend>
                     <table>
                         <tr>
                             <td>
-                                <label for="authors" class="iconic atelier" > Auteur <span class="required">*</span></label>
-                                <select multiple="multiple" class="blank" name="authors" id="authors" tabindex="2">
-                                	<c:forEach items="${authors}" var="author">
-										<option value="${author.id} ${author.firstname} ${author.lastname} ${author.country}">
-											${author.firstname} ${author.lastname}
-										</option>
-									</c:forEach> 
-                                </select>
-                            </td>										
+                                <label for="lastname" class="iconic atelier" > Nom Auteur <span class="required">*</span></label>
+                                <input type="text" name="lastname" id="lastname" tabindex="1"  required="required" placeholder=""  />
+                            </td>                                       
+                            <td>
+                                <label for="firstname" class="iconic tete" > Prénom Auteur <span class="required">*</span></label>                              
+                                <input type="text" name="firstname" id="firstname"  required="required" placeholder=""  />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="country" class="iconic ou" > Pays Auteur <span class="required">*</span></label>                              
+                                <input type="text" name="country" id="country"  required="required" placeholder=""  />
+                            </td>
+                        </tr>
+                        <tr>										
                             <td>
                                 <label for="availability" class="iconic arch" > Disponibilité <span class="required">*</span></label>
                                 <select class="blank" name="availability" id="archive" tabindex="2">

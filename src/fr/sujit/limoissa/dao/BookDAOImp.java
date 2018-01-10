@@ -117,13 +117,16 @@ public class BookDAOImp implements InterfaceDAO<Book>{
 			System.out.println("Le livre existe déjà !");
 		} else {
 			// Insertion du livre
-			executeQuery("INSERT INTO Book(title, overview, price, availability) VALUES"
+			
+			String query= "INSERT INTO Book(title, overview, price, availability) VALUES"
 					+ "('"
 					+ obj.getTitle() + "','"
 					+ obj.getOverview() + "','"
 					+ obj.getPrice() + "','"
 					+ (obj.isAvailability() ? 1 : 0)
-					+ "')");
+					+ "')";
+						
+			executeQuery(query);
 			
 			// Ajout auteur s'il n'existe pas
 			List<Author> authors = DAOFactory.getInstance().getAuthorDAO().findAll();
