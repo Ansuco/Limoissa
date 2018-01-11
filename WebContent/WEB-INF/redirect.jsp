@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html;charset=ISO-8859-1"
 	pageEncoding="UTF-8"%>
-<div>
+
 	<c:choose>
 
 
@@ -11,6 +11,9 @@
 		<c:when test="${actionName == 'add'}">
 			<jsp:include page="ajouter.jsp" />
 		</c:when>
+		<c:when test="${actionName == 'addauthor'}">
+			<jsp:include page="ajouter.jsp" />
+		</c:when> 
 
 
 
@@ -26,4 +29,3 @@
 			</section>
 		</c:otherwise>
 	</c:choose>
-</div>

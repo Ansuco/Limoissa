@@ -86,7 +86,7 @@ public class AuthorDAOImp implements InterfaceDAO<Author> {
     }
 	@Override
 	public void create(Author obj) {
-		executeQuery("INSERT INTO Author(firstname, lastname, native_country) VALUES"
+		executeQuery("INSERT INTO Author(firstname, lastname, country) VALUES"
 				+ "("
 				+ obj.getFirstname() + ","
 				+ obj.getLastname() + ","

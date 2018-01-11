@@ -18,7 +18,7 @@ import fr.sujit.limoissa.utils.Redirect;
  */
 @WebServlet(
 		name = "/MainServlet",
-		value = { "/home", "/books","/add"})
+		value = { "/books","/add", "/addauthor"})
 public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String HOME = "/WEB-INF/index.jsp";   

@@ -17,9 +17,9 @@ public class AddAuthor extends AbstractAction {
 		
 		if(request.getMethod().equals("post")) {
 	    	Author author = new Author();
-	    	author.setFirstname(request.getParameter("author-firstname"));
-	    	author.setLastname(request.getParameter("author-lastname"));
-	    	author.setCountry(request.getParameter("author-country"));	
+	    	author.setFirstname(request.getParameter("firstname"));
+	    	author.setLastname(request.getParameter("lastname"));
+	    	author.setCountry(request.getParameter("country"));	
     	
     		request.setAttribute("author", author);
     		

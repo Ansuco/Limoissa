@@ -24,15 +24,6 @@
 <tbody class="table-hover">
 
 
-<!-- <tr>
-<td class="text-left">Ready Getset</td>
-<td class="text-left">John Doe</td>
-<td class="text-left">France</td>
-<td class="text-left">18.00 €</td>
-<td class="text-center">Oui</td>
-<td class="text-center"><a href="#" id="modif"></a></td>
-<td class="text-center"><a href="#" id="supp"></a></td>
-</tr> -->
 
 		<c:forEach items="${books}" var ="book">
 		<tr>
@@ -57,51 +48,6 @@
 		</c:forEach>
 
 
-<!-- <tr>
-<td class="text-left">Ready Getset</td>
-<td class="text-left">John Doe</td>
-<td class="text-left">France</td>
-<td class="text-left">18.00 €</td>
-<td class="text-center">Oui</td>
-<td class="text-center"><a href="#" id="modif"></a></td>
-<td class="text-center"><a href="#" id="supp"></a></td>
-</tr>
-<tr>
-<td class="text-left">Ready Getset</td>
-<td class="text-left">John Doe</td>
-<td class="text-left">France</td>
-<td class="text-left">18.00 €</td>
-<td class="text-center">Oui</td>
-<td class="text-center"><a href="#" id="modif"></a></td>
-<td class="text-center"><a href="#" id="supp"></a></td>
-</tr>
-<tr>
-<td class="text-left">Ready Getset</td>
-<td class="text-left">John Doe</td>
-<td class="text-left">France</td>
-<td class="text-left">18.00 €</td>
-<td class="text-center">Oui</td>
-<td class="text-center"><a href="#" id="modif"></a></td>
-<td class="text-center"><a href="#" id="supp"></a></td>
-</tr>
-<tr>
-<td class="text-left">Ready Getset</td>
-<td class="text-left">John Doe</td>
-<td class="text-left">France</td>
-<td class="text-left">18.00 €</td>
-<td class="text-center">Oui</td>
-<td class="text-center"><a href="#" id="modif"></a></td>
-<td class="text-center"><a href="#" id="supp"></a></td>
-</tr>
-<tr>
-<td class="text-left">Ready Getset</td>
-<td class="text-left">John Doe</td>
-<td class="text-left">France</td>
-<td class="text-left">18.00 €</td>
-<td class="text-center">Oui</td>
-<td class="text-center"><a href="#" id="modif"></a></td>
-<td class="text-center"><a href="#" id="supp"></a></td>
-</tr> -->
 </tbody>
 </table>
   

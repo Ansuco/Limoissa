@@ -2,9 +2,8 @@
     pageEncoding="UTF-8"
  %>
  
-<jsp:include page="fragments/head.jsp" />
 
-<body>
+
 
 <div class="table-title">
     <h3>Librairie Limoissa</h3>
@@ -14,7 +13,7 @@
         <section id="contact">
             <h1> Ajouter un nouveau livre</h1>
 
-            <form action="<c:url value='/addauthor'/>" method="post"  autocomplete="on">
+            <form action="<c:url value='/addauthor'/>" method="post"  autocomplete="on" id="form-author">
                 <fieldset class="red">
                     <legend>Ajouter un auteur</legend>
                     <table>
@@ -33,15 +32,18 @@
                                 <label for="country" class="iconic ou" > Pays <span class="required">*</span></label>                              
                                 <input type="text" name="country" id="country"  required="required" placeholder=""  />
                             </td>
+                            <td>
+                            	<input class ="firstb" type="submit" value=" ★  Envoyer !" form="form-author" /> 
+                            </td>
                         </tr>       
 
                     </table>
                 </fieldset> 
-                <input class ="firstb" type="submit" value=" ★  Envoyer !" /> 
+                
             </form>
 
 
-            <form action="<c:url value='/add'/>" method="post"  autocomplete="on">
+            <form action="<c:url value='/add'/>" method="post"  autocomplete="on" id="form-book">
                 <fieldset class="red">
                     <legend>Infos obligatoires</legend>
                     <table>
@@ -90,10 +92,9 @@
                 </fieldset>			
                 <p class="indication"> Tous les champs avec <span class="required">*</span> sont obligatoires</p>
                 <input type="button" onclick="location.href='limoissa.html'" value=" ★  Annuler !" />  <a href="<c:url value='/books'/>" class="nc">Annuler</a>     
-                <input type="submit" value=" ★  Envoyer !" /> 
+                <input type="submit" value=" ★  Envoyer !" form="form-book" /> 
 
             </form>
         </section>
     </div>
 </div>
-</body>

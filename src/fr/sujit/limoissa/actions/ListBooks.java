@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import fr.sujit.limoissa.beans.Author;
 import fr.sujit.limoissa.beans.Book;
 import fr.sujit.limoissa.dao.DAOFactory;
 import fr.sujit.limoissa.utils.Redirect;
