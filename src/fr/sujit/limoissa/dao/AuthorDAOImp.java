@@ -84,17 +84,24 @@ public class AuthorDAOImp implements InterfaceDAO<Author> {
         // TODO Auto-generated method stub
 
     }
+	
 	@Override
 	public void create(Author obj) {
-		executeQuery("INSERT INTO Author(firstname, lastname, country) VALUES"
+		
+		
+		String query = "INSERT INTO Author(firstname, lastname, country) VALUES"
 				+ "("
-				+ obj.getFirstname() + ","
-				+ obj.getLastname() + ","
-				+ obj.getCountry() + ","
-				+")");
+				+"'" +obj.getFirstname() + "',"
+				+ "'" +obj.getLastname() + "',"
+				+ "'" +obj.getCountry() + "')";
+		
+		System.out.println(query);
+		
+		executeQuery(query);
 		DAOFactory.getInstance().closeConnection(cnx);
 
 	}
+	
 	@Override
 	public List<Author> findAll() {
 		List<Author> authors = new ArrayList<Author>();

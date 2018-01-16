@@ -39,6 +39,10 @@ public class MainServlet extends HttpServlet {
 		
 		String actionName = getActionName(request);	
 		Redirect redirect = ActionManager.getAction(actionName).executeAction(request);
+		
+		
+	
+		System.out.println("doGet " + redirect.getAction());
 		request.setAttribute("actionName", redirect.getAction());
 
 		if(redirect.isRedirection())
@@ -54,8 +58,14 @@ public class MainServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String actionName = getActionName(request);
+		
+		System.out.println("doPost " + actionName);
+		
 		Redirect redirect = ActionManager.getAction(actionName).executeAction(request);
 
+		
+		System.out.println("doPost " + redirect.getAction() +" "+ redirect.isRedirection());
+		
 		if(redirect.isRedirection())
 		{
 			request.setAttribute("actionName", redirect.getAction());

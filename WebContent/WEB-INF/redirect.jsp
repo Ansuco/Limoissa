@@ -8,11 +8,14 @@
 		<c:when test="${actionName == 'books'}">
 			<jsp:include page="listbooks.jsp" />
 		</c:when>
+		
 		<c:when test="${actionName == 'add'}">
-			<jsp:include page="ajouter.jsp" />
-		</c:when>
+			<jsp:include page="ajouter.jsp" >
+			<jsp:param value="/add" name=""/>
+			</jsp:include>
+		</c:when> 
 		<c:when test="${actionName == 'addauthor'}">
-			<jsp:include page="ajouter.jsp" />
+			<jsp:include page="listbooks.jsp" />
 		</c:when> 
 
 

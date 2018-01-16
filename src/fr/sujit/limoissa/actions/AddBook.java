@@ -20,6 +20,7 @@ public class AddBook extends AbstractAction {
 	public Redirect executeAction(HttpServletRequest request) {
 		
 		Redirect redirect = new Redirect(false, "add");
+		
 		//Code below permits to show list of authors 
 		List<Author> authors = DAOFactory.getInstance().getAuthorDAO().findAll();
 		request.setAttribute("authors", authors);
