@@ -37,12 +37,20 @@ public class AddBook extends AbstractAction {
 			Boolean.parseBoolean(request.getParameter("availability")),
 			new ArrayList<Author>()
 				);
-		
-		book.getAuthors().add(new Author(
-				request.getParameter("firstname"),
-				request.getParameter("lastname"),
-				request.getParameter("country")
-				));
+		// Here we store authors informations in an array
+		String[] authorSend = request.getParameterValues("authors");
+		for (String a : authorSend) {
+			String[] authorSplit = a.split(" ");
+			Author author = DAOFactory.getInstance().getAuthorDAO().find(Integer.parseInt(authorSplit[0]));
+			//for test purpose
+			System.out.println("author : " + author.getId() + " " + author.getFirstname() + " " + author.getLastname() + " " + author.getCountry());
+			//end test
+			book.addAuthor(author);
+		}
+		//for test 
+		System.out.println("book "+ book.getTitle() + " " + book.getOverview() + " " + book.getPrice() + " " + book.isAvailability());
+		System.out.println("book.author : "+ book.getAuthors().get(0).getId() + " " + book.getAuthors().get(0).getFirstname() + " " + book.getAuthors().get(0).getLastname() + " " + book.getAuthors().get(0).getCountry());
+		//end test
 		DAOFactory.getInstance().getBookDAO().create(book);
 		
 		redirect = new Redirect(true, "books");

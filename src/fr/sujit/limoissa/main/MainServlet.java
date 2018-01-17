@@ -38,11 +38,13 @@ public class MainServlet extends HttpServlet {
 		request.setAttribute("title", "Library Limoissa"); 	// To change the name of the title page.	
 		
 		String actionName = getActionName(request);	
+		
 		Redirect redirect = ActionManager.getAction(actionName).executeAction(request);
 		
 		
-	
+		// for test
 		System.out.println("doGet " + redirect.getAction());
+		//end test
 		request.setAttribute("actionName", redirect.getAction());
 
 		if(redirect.isRedirection())
@@ -58,14 +60,14 @@ public class MainServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String actionName = getActionName(request);
-		
+		//for test
 		System.out.println("doPost " + actionName);
-		
+		//end test
 		Redirect redirect = ActionManager.getAction(actionName).executeAction(request);
 
-		
+		//for test
 		System.out.println("doPost " + redirect.getAction() +" "+ redirect.isRedirection());
-		
+		//end test
 		if(redirect.isRedirection())
 		{
 			request.setAttribute("actionName", redirect.getAction());

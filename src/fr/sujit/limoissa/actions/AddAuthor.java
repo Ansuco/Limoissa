@@ -14,12 +14,12 @@ public class AddAuthor extends AbstractAction {
     public Redirect executeAction(HttpServletRequest request) {
     	Redirect redirect = new Redirect(false, "addauthor");
 		request.setAttribute("title", "Ajouter un auteur");
-		System.out.println(" AddBook");
+	
 		if(request.getMethod().equals("POST"))
 		{
-			
+			//for test
 			System.out.println("POST AddBook");
-			
+			//end test
 			
 			
 	    	Author author = new Author();

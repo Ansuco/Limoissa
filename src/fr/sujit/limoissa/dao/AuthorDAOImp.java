@@ -94,9 +94,9 @@ public class AuthorDAOImp implements InterfaceDAO<Author> {
 				+"'" +obj.getFirstname() + "',"
 				+ "'" +obj.getLastname() + "',"
 				+ "'" +obj.getCountry() + "')";
-		
+		//for test
 		System.out.println(query);
-		
+		//end test
 		executeQuery(query);
 		DAOFactory.getInstance().closeConnection(cnx);
 

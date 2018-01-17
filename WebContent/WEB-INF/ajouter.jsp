@@ -61,8 +61,8 @@
                             <td>
                                 <label for="availability" class="iconic arch" > Disponibilité <span class="required">*</span></label>
                                 <select class="blank" name="availability" id="archive" tabindex="2">
-                                    <option value="1">Oui</option>
-                                    <option value="0" selected="selected">Non</option>
+                                    <option value="true">Oui</option>
+                                    <option value="false">Non</option>
                                 </select>
                             </td>
                         </tr>
